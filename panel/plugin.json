@@ -1,0 +1,16 @@
+{
+  "id": "epanel-plugin-mcsm-market",
+  "version": "1.0.0",
+  "description": "Provides the application market: package browsing, one-click instance creation, reinstall-from-package and the custom market editor.",
+  "priority": 174,
+  "frontendInject": [
+    "console",
+    "i18n",
+    "instance"
+  ],
+  "backend": "src/backend/index.ts",
+  "frontend": "src/frontend.ts",
+  "name": "MCSManager App Market",
+  "displayName": "MCSManager App Market",
+  "category": "tools"
+}

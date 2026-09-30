@@ -1,0 +1,13 @@
+{
+  "name": "epanel-plugin-mcsm-market",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^1.8.2",
+    "fs-extra": "^9.0.1"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.cjs"
+  },
+  "license": "Apache-2.0"
+}
