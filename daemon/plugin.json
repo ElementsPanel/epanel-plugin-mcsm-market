@@ -1,9 +1,3 @@
 {
-  "id": "epanel-plugin-mcsm-market",
-  "name": "MCSManager App Market",
-  "version": "1.0.0",
-  "description": "Owns the market package install tasks: creating an instance from a package and reinstalling an existing one.",
-  "priority": 100,
-  "backend": "src/backend/index.ts",
-  "displayName": "MCSManager App Market"
+  "backend": "src/backend/index.ts"
 }

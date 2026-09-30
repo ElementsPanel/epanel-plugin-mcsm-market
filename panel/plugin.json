@@ -1,7 +1,7 @@
 {
   "id": "epanel-plugin-mcsm-market",
   "version": "1.0.0",
-  "description": "Provides the application market: package browsing, one-click instance creation, reinstall-from-package and the custom market editor.",
+  "description": "上游 MCSM 的应用商城组件",
   "priority": 174,
   "frontendInject": [
     "console",
