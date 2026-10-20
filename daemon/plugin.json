@@ -1,5 +1,6 @@
 {
   "id": "epanel-plugin-mcsm-market",
   "version": "1.0.0",
+  "dual": true,
   "backend": "src/backend/index.ts"
 }

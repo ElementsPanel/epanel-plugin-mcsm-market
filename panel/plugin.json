@@ -1,6 +1,7 @@
 {
   "id": "epanel-plugin-mcsm-market",
   "version": "1.0.0",
+  "dual": true,
   "description": "上游 MCSM 的应用商城组件",
   "priority": 174,
   "frontendInject": [
