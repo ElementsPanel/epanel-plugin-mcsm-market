@@ -163,7 +163,7 @@ const handleInstall = async () => {
             {{ t("TXT_CODE_b197be11") }}
         </div>
         <template v-else>
-            <div class="dm-header">
+            <div class="dm-header" :class="{ 'dm-header--detail': !isCategoryView }">
                 <div class="dm-header__left">
                     <VBtn v-if="!isCategoryView" icon variant="text" rounded="xl" class="dm-btn dm-btn--icon" @click="handleBackToCategory">
                         <VIcon icon="mdi-arrow-left"  />
@@ -285,20 +285,34 @@ const handleInstall = async () => {
 
 .dm-header {
     display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
     padding: 20px 24px;
     border-bottom: 1px solid var(--desktop-window-border);
     background: var(--desktop-window-titlebar-bg);
 
+    &--detail {
+        padding-block: 8px;
+    }
+
     &__left {
         display: flex;
+        flex: 1 1 160px;
+        min-width: 0;
         align-items: center;
         gap: 16px;
     }
 
     &__right {
         display: flex;
+        flex: 0 1 480px;
+        flex-wrap: wrap;
+        min-width: 0;
+        max-width: 100%;
+        margin-inline-start: auto;
         align-items: center;
         gap: 12px;
     }
@@ -309,6 +323,9 @@ const handleInstall = async () => {
     font-weight: 600;
     color: var(--desktop-window-text);
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .dm-content {
@@ -445,53 +462,14 @@ const handleInstall = async () => {
 }
 
 .dm-select {
-    appearance: none;
-    background-color: var(--desktop-window-titlebar-bg);
-    border: 1px solid var(--desktop-window-border);
-    border-radius: 6px;
-    color: var(--desktop-window-text);
-    padding: 6px 30px 6px 12px;
-    font-size: 13px;
-    outline: none;
-    cursor: pointer;
-    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px top 50%;
-    background-size: 10px auto;
-
-    option {
-        background: var(--desktop-window-bg);
-        color: var(--desktop-window-text);
-    }
+    flex: 0 0 160px;
+    min-width: 0;
+    max-width: 100%;
 }
 
-.dm-search {
-    display: flex;
-    align-items: center;
-    background: var(--desktop-window-titlebar-bg);
-    border: 1px solid var(--desktop-window-border);
-    border-radius: 6px;
-    padding: 0 12px;
-    width: 200px;
-
-    &__icon {
-        color: var(--desktop-window-text-muted);
-        font-size: 14px;
-    }
-
-    &__input {
-        flex: 1;
-        background: transparent;
-        border: none;
-        color: var(--desktop-window-text);
-        padding: 6px 8px;
-        font-size: 13px;
-        outline: none;
-
-        &::placeholder {
-            color: var(--desktop-window-text-muted);
-        }
-    }
+.dm-search__input {
+    flex: 1 1 280px;
+    min-width: min(240px, 100%);
 }
 
 .dm-btn {
