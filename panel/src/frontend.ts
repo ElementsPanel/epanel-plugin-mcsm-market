@@ -37,7 +37,8 @@ export function apply(ctx: PanelFrontendPluginContext) {
   ctx.actions.terminal({
     id: "market-reinstall",
     title: () => t("TXT_CODE_b19ed1dd"),
-    icon: "mdi-gesture-tap-button",
+    icon: "mdi-storefront-outline",
+    mdiIcon: "mdi-storefront-outline",
     click: async ({ daemonId, instanceId, isDockerMode, clearTerminal }) => {
       try {
         clearTerminal();

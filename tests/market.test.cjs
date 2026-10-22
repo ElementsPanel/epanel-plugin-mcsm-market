@@ -71,6 +71,7 @@ test('application frontend owns only app routes and preserves its service contra
   assert.deepEqual(routes, ['/quickstart/minecraft', '/market', '/market/editor']);
   assert.deepEqual(desktop.map(item => item.id), ['market']);
   assert.equal(actions[0].id, 'market-reinstall');
+  assert.equal(actions[0].mdiIcon, 'mdi-storefront-outline');
   assert.equal(services[0][0], 'market');
   assert.equal(typeof services[0][1].openMarketDialog, 'function');
 });

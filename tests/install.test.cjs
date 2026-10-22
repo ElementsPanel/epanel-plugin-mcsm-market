@@ -24,9 +24,16 @@ function load(filename, overrides = {}, source) {
   filename = path.resolve(root, filename);
   const mod = new Module(filename, module);
   const localRequire = Module.createRequire(filename);
-  mod.require = (id) => Object.hasOwn(overrides, id) ? overrides[id]
-    : filename.startsWith(path.join(workspace, "daemon") + path.sep) && !id.startsWith(".")
-    ? daemonRequire(id) : localRequire(id);
+  mod.require = (id) => {
+    if (Object.hasOwn(overrides, id)) return overrides[id];
+    if (id.startsWith(".")) {
+      const target = path.resolve(path.dirname(filename), id);
+      if (fs.existsSync(target + ".ts")) return load(target + ".ts", overrides);
+      if (fs.existsSync(path.join(target, "index.ts"))) return load(path.join(target, "index.ts"), overrides);
+    }
+    return filename.startsWith(path.join(workspace, "daemon") + path.sep) && !id.startsWith(".")
+      ? daemonRequire(id) : localRequire(id);
+  };
   mod._compile(
     ts.transpileModule(source ?? fs.readFileSync(filename, "utf8"), {
       compilerOptions: {
