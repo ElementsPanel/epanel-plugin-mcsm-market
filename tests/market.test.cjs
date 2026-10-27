@@ -109,7 +109,7 @@ test('reinstall uses the trusted catalogue and keeps caller permissions', async 
 test('both sides are discoverable as one external package', () => {
   const discovery = load(path.join(host, 'common/src/plugin_manifest.ts'));
   for (const side of ['panel', 'daemon']) {
-    const roots = discovery.discoverExternalPluginRoots(host, side);
+    const roots = [{ directory: path.join(workspace, side) }];
     const plugins = discovery.discoverPluginsFromRoots(roots, { entryFields: ['backend'] });
     const plugin = plugins.find(item => item.manifest.id === 'epanel-plugin-mcsm-market');
     assert.ok(plugin, `${side} must be discovered`);

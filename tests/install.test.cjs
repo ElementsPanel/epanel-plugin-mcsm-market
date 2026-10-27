@@ -259,7 +259,7 @@ test("the instance plugin installs Minecraft before market loads and while marke
   ctx.set("settings", { config: {} });
   ctx.set("storage", {});
   ctx.set("transfer", {});
-  ctx.set("protocol", {});
+  ctx.set("protocol", { on() {} });
   ctx.set("files", { getFileManager: f.ctx.instances.fileManager });
   const registries = load("daemon/plugins/instance/src/backend/registries.ts", {
     "./service/async_task_core": { AsyncTask, TaskCenter }
@@ -276,6 +276,8 @@ test("the instance plugin installs Minecraft before market loads and while marke
     "./service/system_instance": {
       default: {
         ...f.ctx.instances.subsystem,
+        on() {},
+        off() {},
         loadInstances() {},
         getInstances: () => [],
         exit: async () => {}
