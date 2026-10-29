@@ -1,5 +1,5 @@
-import { useDefineApi } from "@/stores/useDefineApi";
-import type { QuickStartTemplate } from "@/types";
+import { useDefineApi } from "./request";
+import type { QuickStartTemplate } from "./types";
 
 // Every HTTP call the market makes. The panel core keeps none of these, so
 // removing this plugin removes the market API surface with it.

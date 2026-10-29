@@ -1,2 +1,5 @@
 node_modules/
 .dist/
+panel/backend/
+panel/frontend/
+daemon/backend/

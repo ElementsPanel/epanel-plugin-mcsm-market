@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { router } from "@/config/router";
-import PageToolbar from "@/components/PageToolbar.vue";
-import { t } from "@/lang/i18n";
+import { router } from "../host";
+import PageToolbar from "../components/PageToolbar.vue";
+import { t } from "../host";
 import McPreset from "./McPreset.vue";
 import { VBtn, VContainer, VDivider } from "vuetify/components";
 

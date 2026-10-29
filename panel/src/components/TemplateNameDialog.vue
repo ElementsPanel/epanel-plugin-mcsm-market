@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import AppDialog from "@/components/AppDialog.vue";
-import { t } from "@/lang/i18n";
-import type { QuickStartPackages } from "@/types";
+import AppDialog from "./AppDialog.vue";
+import { t } from "../host";
+import type { QuickStartPackages } from "../types";
 import { computed, reactive } from "vue";
 import { VChip, VTextField } from "vuetify/components";
 

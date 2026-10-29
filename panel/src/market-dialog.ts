@@ -1,4 +1,4 @@
-import { useMountComponent } from "@/hooks/useMountComponent";
+import { useMountComponent } from "./hooks/useMountComponent";
 import MarketDialog from "./components/MarketDialog.vue";
 
 /** Options accepted by {@link openMarketDialog}. */

@@ -56,8 +56,8 @@ for (const order of [['app', 'plugins'], ['plugins', 'app']]) {
 test('application frontend owns only app routes and preserves its service contract', () => {
   const routes = [], desktop = [], actions = [], services = [];
   const plugin = load(source('panel/src/frontend.ts'), {
-    '@/lang/i18n': { t: key => key },
-    '@/stores/useAppStateStore': { useAppStateStore: () => ({ isAdmin: { value: true } }) },
+    './host': { t: key => key, useAppStateStore: () => ({ isAdmin: { value: true } }) },
+    './context': { setPluginContext() {} },
     './api': {}, './hooks/useMarketPackages': { useMarketPackages() {} },
     './market-dialog': { openMarketDialog() {} },
     './runtime': { getAllowUsePreset: () => false, refreshMarketPermission() {} }
@@ -111,19 +111,17 @@ test('both sides are discoverable as one external package', () => {
   for (const side of ['panel', 'daemon']) {
     const roots = [{ directory: path.join(workspace, side) }];
     const plugins = discovery.discoverPluginsFromRoots(roots, { entryFields: ['backend'] });
-    const plugin = plugins.find(item => item.manifest.id === 'epanel-plugin-mcsm-market');
+    const plugin = plugins.find(item => item.manifest.id === 'mcsm-market');
     assert.ok(plugin, `${side} must be discovered`);
-    assert.equal(plugin.manifest.backend, 'src/backend/index.ts');
+    assert.equal(plugin.manifest.backend, 'backend/index.cjs');
   }
 });
 
 test("market reset clears platform/language filters and returns all languages", () => {
   const { useMarketPackages } = load(source("panel/src/hooks/useMarketPackages.ts"), {
     vue: Module.createRequire(path.join(host, "frontend/package.json"))("vue"),
-    "@/lang/i18n": { t: key => key, getCurrentLang: () => "zh_cn" },
-    "@/tools/validator": {},
-    "@/types/const": { SEARCH_ALL_KEY: "ALL" },
-    "@/tools/vuetifyModal": {},
+    "../host": { t: key => key, getCurrentLang: () => "zh_cn" },
+    "../notices": {},
     "../api": { quickInstallListAddr: () => ({}) }
   });
   const market = useMarketPackages();

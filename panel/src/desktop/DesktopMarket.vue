@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { openNodeSelectDialog } from "@/components/fc";
-import { t } from "@/lang/i18n";
-import { getDockerHubImagePlatforms } from "@/services/apis/envImage";
-import { createAsyncTask } from "@/services/apis/instance";
-import { notifyDesktopError } from "@/tools/desktopNotice";
-import type { QuickStartPackages } from "@/types";
+import { openNodeSelectDialog } from "../host";
+import { t } from "../host";
+import { getDockerHubImagePlatforms } from "../host";
+import { createAsyncTask } from "../host";
+import { notifyDesktopError } from "../notices";
+import type { QuickStartPackages } from "../types";
 import { SEARCH_ALL_KEY, useMarketPackages } from "../hooks/useMarketPackages";
 import { computed, onMounted, ref } from "vue";
 import DesktopWindow from "./DesktopWindow.vue";

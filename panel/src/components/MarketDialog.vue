@@ -1,19 +1,22 @@
 <script setup lang="ts">
-import { useDialog } from "@/hooks/useDialog";
-import { t } from "@/lang/i18n";
-import { reportErrorMsg } from "@/tools/validator";
-import type { QuickStartPackages } from "@/types";
+import { useDialog } from "../hooks/useDialog";
+import { t } from "../host";
+import { reportErrorMsg } from "../notices";
+import type { QuickStartPackages } from "../types";
 import { ref } from "vue";
-import AppDialog from "@/components/AppDialog.vue";
+import AppDialog from "./AppDialog.vue";
 import { VBtn } from "vuetify/components";
 import { reinstallInstance } from "../api";
-import type { OpenMarketDialogProps } from "../market-dialog";
 import AppPackages from "../normal/AppPackages.vue";
 
-// The two callbacks `useMountComponent` injects, spelled out rather than taken
-// from the core `MountComponent<T>`: the SFC compiler resolves `defineProps`
-// types itself, and it cannot follow the `@/` alias from a plugin directory.
-interface Props extends OpenMarketDialogProps {
+interface Props {
+  daemonId?: string;
+  instanceId?: string;
+  autoInstall?: boolean;
+  btnText?: string;
+  dialogTitle?: string;
+  showCustomBtn?: boolean;
+  onlyDockerTemplate?: boolean;
   destroyComponent?: (delay?: number) => void;
   emitResult?: (data?: QuickStartPackages) => void;
 }

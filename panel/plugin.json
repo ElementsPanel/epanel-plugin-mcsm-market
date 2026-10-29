@@ -1,5 +1,5 @@
 {
-  "id": "epanel-plugin-mcsm-market",
+  "id": "mcsm-market",
   "version": "1.0.0",
   "dual": true,
   "description": "上游 MCSM 的应用商城组件",
@@ -9,9 +9,12 @@
     "i18n",
     "instance"
   ],
-  "backend": "src/backend/index.ts",
-  "frontend": "src/frontend.ts",
+  "backend": "backend/index.cjs",
+  "frontend": "frontend/index.js",
   "name": "MCSManager App Market",
   "displayName": "MCSManager App Market",
-  "category": "tools"
+  "category": "tools",
+  "styles": [
+    "frontend/assets/style.css"
+  ]
 }

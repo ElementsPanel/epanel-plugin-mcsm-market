@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import PageToolbar from "@/components/PageToolbar.vue";
-import { openNodeSelectDialog } from "@/components/fc";
-import { router } from "@/config/router";
-import type { ComputedNodeInfo } from "@/hooks/useOverviewInfo";
-import { t } from "@/lang/i18n";
-import { getDockerHubImagePlatforms } from "@/services/apis/envImage";
-import { createAsyncTask } from "@/services/apis/instance";
-import { reportErrorMsg } from "@/tools/validator";
-import type { QuickStartPackages } from "@/types";
-import { message } from "@/tools/vuetifyToast";
+import PageToolbar from "../components/PageToolbar.vue";
+import { openNodeSelectDialog } from "../host";
+import { router } from "../host";
+import type { ComputedNodeInfo } from "../types";
+import { t } from "../host";
+import { getDockerHubImagePlatforms } from "../host";
+import { createAsyncTask } from "../host";
+import { reportErrorMsg } from "../notices";
+import type { QuickStartPackages } from "../types";
+import { message } from "../notices";
 import { ref } from "vue";
 import { useRoute } from "vue-router";
 import TemplateNameDialog from "../components/TemplateNameDialog.vue";

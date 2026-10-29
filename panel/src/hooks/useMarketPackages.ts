@@ -1,10 +1,10 @@
-import { getCurrentLang, t } from "@/lang/i18n";
-import { reportErrorMsg } from "@/tools/validator";
-import type { FilterOption, QuickStartPackages } from "@/types";
-import { SEARCH_ALL_KEY } from "@/types/const";
-import { Modal } from "@/tools/vuetifyModal";
+import { getCurrentLang, t } from "../host";
+import { reportErrorMsg } from "../notices";
+import type { FilterOption, QuickStartPackages } from "../types";
+import { SEARCH_ALL_KEY } from "../types";
+import { Modal } from "../notices";
 import { computed, reactive, ref } from "vue";
-import type { ComputedNodeInfo } from "@/hooks/useOverviewInfo";
+import type { ComputedNodeInfo } from "../types";
 import { quickInstallListAddr } from "../api";
 
 export { SEARCH_ALL_KEY };

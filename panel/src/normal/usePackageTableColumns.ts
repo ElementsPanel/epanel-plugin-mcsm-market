@@ -1,5 +1,5 @@
-import { t } from "@/lang/i18n";
-import type { QuickStartPackages } from "@/types";
+import { t } from "../host";
+import type { QuickStartPackages } from "../types";
 import { computed, type ComputedRef } from "vue";
 
 /**

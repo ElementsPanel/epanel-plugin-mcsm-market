@@ -1,6 +1,6 @@
-import { t } from "@/lang/i18n";
-import type { PanelFrontendPluginContext } from "@/plugin";
-import { useAppStateStore } from "@/stores/useAppStateStore";
+import { t } from "./host";
+import type { PanelFrontendPluginContext } from "@elements-panel/sdk";
+import { useAppStateStore } from "./host";
 import * as marketApi from "./api";
 import DesktopMarket from "./desktop/DesktopMarket.vue";
 import { useMarketPackages } from "./hooks/useMarketPackages";
@@ -10,12 +10,14 @@ import Market from "./normal/Market.vue";
 import MarketEditor from "./normal/MarketEditor.vue";
 import McPreset from "./normal/McPreset.vue";
 import { getAllowUsePreset, refreshMarketPermission } from "./runtime";
+import { setPluginContext } from "./context";
 
 const ROLE_ADMIN = 10;
 
 export const inject = ["console", "i18n", "routes", "ui", "actions", "desktop", "instance"];
 
 export function apply(ctx: PanelFrontendPluginContext) {
+  setPluginContext(ctx);
   ctx.i18n.define(localeMessages);
 
   // Exposed so the core terminal bridge and other plugins can open the package
