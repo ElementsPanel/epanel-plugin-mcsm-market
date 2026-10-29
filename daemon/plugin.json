@@ -1,6 +1,3 @@
 {
-  "id": "mcsm-market",
-  "version": "1.0.0",
-  "dual": true,
   "backend": "backend/index.cjs"
 }
