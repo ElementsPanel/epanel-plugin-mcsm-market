@@ -34,8 +34,8 @@
     "vuetify": "^4.2.1"
   },
   "peerDependencies": {
-    "@elementspanel/panel": "1.0.0",
-    "@elementspanel/daemon": "1.0.0"
+    "@elementspanel/panel": "^1.0.0",
+    "@elementspanel/daemon": "^1.0.0"
   },
   "peerDependenciesMeta": {
     "@elementspanel/panel": {
