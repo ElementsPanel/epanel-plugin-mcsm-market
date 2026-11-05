@@ -1,6 +1,6 @@
 {
   "name": "@elementspanel/epanel-plugin-mcsm-market",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "上游 MCSM 的应用商城组件",
   "license": "Apache-2.0",
   "publishConfig": {
